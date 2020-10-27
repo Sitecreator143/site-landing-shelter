@@ -129,20 +129,99 @@ const petsArr = [
       "parasites": ["lice", "fleas"]
     }
 ]
-//Slider elements
-const friendsItems = document.querySelectorAll('[data-item]')
-const friendsImages = document.querySelectorAll('[data-item]')
-const friendsNames = document.querySelectorAll('[data-item]')
+//Slider item
+const sliderItems = document.querySelectorAll('[data-slider-item]')
+
+//Pets data
+const petName = document.querySelectorAll('[data-pet-name]')
+const petImage = document.querySelectorAll('[data-pet-img]')
+const petType = document.querySelector('[data-pet-type]')
+const petBreed = document.querySelector('[data-pet-breed]')
+const petDescription = document.querySelector('[data-pet-description]')
+const petAge = document.querySelector('[data-pet-age]')
+const petInoculations = document.querySelector('[data-pet-inoculations]')
+const petDiseases = document.querySelector('[data-pet-diseases]')
+const petParasites = document.querySelector('[data-pet-parasites]')
+
+//slider elements
+const sliderBtnRight = document.querySelector('[data-slider-right]')
+const sliderBtnLeft = document.querySelector('[data-slider-left]')
+
 //Popup
 const popup = document.querySelector('[data-popup]')
 const popupClose = document.querySelector('[data-popup-close]')
 
+
+
+
+
+//Random function Возвращает массив из случайных неповторяющихся чисел
+let randomArr = []
+function getRandom(min, max) { 
+  let currentValue = 0
+  for (let i = min; randomArr.length <= (max - min); i) {
+    currentValue = Math.floor(Math.random() * (max - min + 1) + min) 
+    if (randomArr.indexOf(currentValue) < 0) {
+      randomArr.push(currentValue)
+    }
+  }
+  console.log(randomArr)
+  return randomArr
+}
+getRandom(0, 7)
+
+//Заполнение данных слайдера и попапа
+let randomNumber = 0
+const sliderData = () => {
+  
+  let sliderRefresh = () => {
+    let itemNumber = 0
+    petName[itemNumber].innerText = petsArr[randomArr[randomNumber]]["name"]
+    petImage[itemNumber].src = petsArr[randomArr[randomNumber]]["img"]
+  /*   petType[itemNumber].innerText = petsArr[randomArr[randomNumber]]["type"] + ' - ' + petsArr[randomArr[randomNumber]]["breed"]
+    petDescription[itemNumber].innerText = petsArr[randomArr[randomNumber]]["description"]
+    petAge[itemNumber].innerText = petsArr[randomArr[randomNumber]]["age"]
+    petInoculations[itemNumber].innerText = petsArr[randomArr[randomNumber]]["inoculations"].join('')
+    petDiseases[itemNumber].innerText = petsArr[randomArr[randomNumber]]["diseases"].join('')
+    petParasites[itemNumber].innerText = petsArr[randomArr[randomNumber]]["parasites"].join('') */
+  
+    itemNumber++
+    petName[itemNumber].innerText = petsArr[randomArr[(randomNumber + 1) % 8 ]]["name"]
+    petImage[itemNumber].src = petsArr[randomArr[(randomNumber + 1) % 8 ]]["img"]
+  
+    itemNumber++
+    petName[itemNumber].innerText = petsArr[randomArr[(randomNumber + 2) % 8 ]]["name"]
+    petImage[itemNumber].src = petsArr[randomArr[(randomNumber + 2) % 8 ]]["img"]
+  }
+  sliderRefresh()
+
+  sliderBtnRight.addEventListener('click', () => {
+    randomNumber = (randomNumber + 3) % 8 
+    sliderRefresh()
+  })
+  sliderBtnLeft.addEventListener('click', () => {
+    randomNumber = (randomNumber + 5) % 8
+    sliderRefresh()
+  })
+}
+sliderData()
+
 //Показ и скрытие попапа
-const friendPush = () => {
-    for (let i = 0; i < friendsItems.length; i++) {
-        friendsItems[i].addEventListener('click', () => {
-            popup.classList.add('popup_active')
-            body.classList.add('lock')
+const sliderItemPush = () => {
+    for (let i = 0; i < 3; i++) {
+        sliderItems[i].addEventListener('click', () => {
+          popup.classList.add('popup_active')
+          body.classList.add('lock')
+          
+          petName[3].innerText = petsArr[randomArr[(randomNumber + i) % 8 ]]["name"]
+          petImage[3].src = petsArr[randomArr[(randomNumber + i) % 8 ]]["img"]
+
+          petType.innerText = petsArr[randomArr[(randomNumber + i) % 8 ]]["type"] + ' - ' + petsArr[randomArr[(randomNumber + i) % 8 ]]["breed"]
+          petDescription.innerText = petsArr[randomArr[(randomNumber + i) % 8 ]]["description"]
+          petAge.innerText = petsArr[randomArr[(randomNumber + i) % 8 ]]["age"]
+          petInoculations.innerText = petsArr[randomArr[(randomNumber + i) % 8 ]]["inoculations"].join('')
+          petDiseases.innerText = petsArr[randomArr[(randomNumber + i) % 8 ]]["diseases"].join('')
+          petParasites.innerText = petsArr[randomArr[(randomNumber + i) % 8 ]]["parasites"].join('')
         })
     }
     popupClose.addEventListener('click', () => {
@@ -150,14 +229,9 @@ const friendPush = () => {
         body.classList.remove('lock')
     })
 }
-friendPush()
+sliderItemPush()
 
 
-
-
-
-
-console.dir(friendsItems)
 
 
 
