@@ -40,7 +40,7 @@
                         <div class="intro_description">
                             <p>We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
                         </div>
-                        <button class="intro__button">
+                        <button class="intro__button" onclick="location.href='pets.html'">
                             Make a friend
                         </button>
                     </div>
@@ -99,11 +99,11 @@
                 </div>
                 <div class="friends__wrap">
 
-                    <div class="friends__item">
+                    <div class="friends__item" data-item>
                         <div class="friends__image">
-                            <img src="img/friends/friends_01.png" alt="">
+                            <img src="img/friends/friends_01.png" alt="" data-img>
                         </div>
-                        <div class="friends__name">
+                        <div class="friends__name" data-name>
                             Katrine
                         </div>
                         <button class="friends__more">
@@ -111,20 +111,11 @@
                         </button>
                     </div>
 
-                    <div class="arr">
-                        <div class="friends__arrow">
-                            &rarr;
-                        </div>
-                        <div class="friends__arrow">
-                            &larr;
-                        </div>
-                    </div>
-
-                    <div class="friends__item">
+                    <div class="friends__item" data-item>
                         <div class="friends__image">
-                            <img src="img/friends/friends_01.png" alt="">
+                            <img src="img/friends/friends_01.png" alt="" data-img>
                         </div>
-                        <div class="friends__name">
+                        <div class="friends__name" data-name>
                             Katrine
                         </div>
                         <button class="friends__more">
@@ -132,11 +123,11 @@
                         </button>
                     </div>
 
-                    <div class="friends__item">
+                    <div class="friends__item" data-item>
                         <div class="friends__image">
-                            <img src="img/friends/friends_01.png" alt="">
+                            <img src="img/friends/friends_01.png" alt="" data-img>
                         </div>
-                        <div class="friends__name">
+                        <div class="friends__name" data-name>
                             Katrine
                         </div>
                         <button class="friends__more">
@@ -145,7 +136,15 @@
                     </div>
 
                 </div>
-                <button class="friends__button">
+                <div class="arr">
+                    <div class="friends__arrow">
+                        &rarr;
+                    </div>
+                    <div class="friends__arrow">
+                        &larr;
+                    </div>
+                </div>
+                <button class="friends__button" onclick="location.href='pets.html'">
                     Get to know the rest
                 </button>
             </div>
@@ -361,7 +360,7 @@
         </div>
     </section>
 
-    <section class="popup"> <!-- popup_active -->
+    <section class="popup" data-popup> <!-- popup_active -->
         <div class="popup__wrap">
             <div class="popup__image">
                 <img src="img/friends/friends_01.png" alt="">
@@ -385,7 +384,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="popup__close">
+            <div class="popup__close" data-popup-close>
                 <img src="img/popup/Vector.svg" alt="">
             </div>
         </div>

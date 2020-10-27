@@ -88,8 +88,6 @@ body.lock {
   margin: 0 auto;
 }
 
-/* Main page */
-/* Section header */
 .intro__body {
   min-height: 908px;
   width: 100%;
@@ -354,7 +352,6 @@ body.lock {
     display: block;
   }
 }
-/* Section about */
 .about__body {
   display: -webkit-box;
   display: flex;
@@ -436,7 +433,6 @@ body.lock {
     padding-right: 0px;
   }
 }
-/* Section friends */
 .friends__body {
   position: relative;
   display: -webkit-box;
@@ -498,6 +494,7 @@ body.lock {
 }
 
 .friends__item {
+  cursor: pointer;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -559,7 +556,7 @@ body.lock {
     padding: 80px 94px 100px 94px;
   }
 
-  .friends__item:last-child {
+  .friends__item:nth-child(3) {
     display: none;
   }
 
@@ -580,7 +577,7 @@ body.lock {
     font-size: 25px;
   }
 
-  .friends__item:nth-child(3) {
+  .friends__item:nth-child(2) {
     display: none;
   }
 
@@ -593,13 +590,14 @@ body.lock {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
             flex-direction: column;
-    margin: 42px 0;
+    margin: 42px 0 0 0;
   }
 
   .arr {
     display: -webkit-box;
     display: flex;
     margin-top: 20px;
+    margin-bottom: 42px;
   }
 
   .friends__arrow {
@@ -617,7 +615,6 @@ body.lock {
     margin-left: 0;
   }
 }
-/* Section help */
 .help__body {
   min-height: 611px;
   width: 100%;
@@ -685,7 +682,6 @@ body.lock {
             flex: 0 0 40%;
   }
 }
-/* Section donation */
 .donation__body {
   display: -webkit-box;
   display: flex;
@@ -811,7 +807,6 @@ body.lock {
     text-align: justify;
   }
 }
-/* Section footer */
 .footer__body {
   height: 350px;
   width: 100%;
@@ -902,7 +897,6 @@ body.lock {
     height: 269px;
   }
 }
-/* Popup */
 .popup {
   display: none;
   position: fixed;
@@ -1060,8 +1054,6 @@ body.lock {
     margin-top: 0;
   }
 }
-/* Pets */
-/* Pets header */
 .pets-header__body {
   position: relative;
   height: 120px;
@@ -1211,7 +1203,6 @@ body.lock {
     display: block;
   }
 }
-/* Pets friends */
 .pets-friends__body {
   position: relative;
   min-height: 1342px;
