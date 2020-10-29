@@ -195,13 +195,38 @@ const sliderData = () => {
   }
   sliderRefresh()
 
+  //Функции стрелки
   sliderBtnRight.addEventListener('click', () => {
     randomNumber = (randomNumber + 3) % 8 
     sliderRefresh()
+
+    //Анимация слайдера
+    for (let i = 0; i < sliderItems.length; i++) {
+      const animation = sliderItems[i].animate([
+        { left: '100%' },
+        { left: '0' } 
+      ], 500);
+      animation.addEventListener('finish', function() {
+        sliderItems[i].style.left = '0';
+      });
+    }
   })
+
+  //Функция стрелки
   sliderBtnLeft.addEventListener('click', () => {
     randomNumber = (randomNumber + 5) % 8
     sliderRefresh()
+
+    //Анимация слайдера
+    for (let i = 0; i < sliderItems.length; i++) {
+      const animation = sliderItems[i].animate([
+        { right: '100%' },
+        { right: '0' } 
+      ], 500);
+      animation.addEventListener('finish', function() {
+        sliderItems[i].style.right = '0';
+      });
+    }
   })
 }
 sliderData()
