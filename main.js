@@ -202,11 +202,11 @@ const sliderData = () => {
 
     //Анимация слайдера
     for (let i = 0; i < sliderItems.length; i++) {
-      const animation = sliderItems[i].animate([
+      const animationLeft = sliderItems[i].animate([
         { left: '100%' },
         { left: '0' } 
       ], 500);
-      animation.addEventListener('finish', function() {
+      animationLeft.addEventListener('finish', function() {
         sliderItems[i].style.left = '0';
       });
     }
@@ -219,12 +219,12 @@ const sliderData = () => {
 
     //Анимация слайдера
     for (let i = 0; i < sliderItems.length; i++) {
-      const animation = sliderItems[i].animate([
-        { right: '100%' },
-        { right: '0' } 
+      const animationRight = sliderItems[i].animate([
+        { left: '-100%' },
+        { left: '0' } 
       ], 500);
-      animation.addEventListener('finish', function() {
-        sliderItems[i].style.right = '0';
+      animationRight.addEventListener('finish', function() {
+        sliderItems[i].style.left = '0';
       });
     }
   })
